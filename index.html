@@ -843,17 +843,36 @@
             }
         }
         /* ==================== EVENTS SECTION STYLES ==================== */
+/* =====================
+   Events Container
+   ===================== */
 .events-container {
     display: flex;
     justify-content: center;
 }
 
+/* =====================
+   Event Card
+   ===================== */
 .event-card {
     text-align: center;
     max-width: 800px;
     width: 100%;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+.event-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+/* =====================
+   Event Image
+   ===================== */
 .event-image {
     width: 100%;
     max-width: 400px;
@@ -862,94 +881,147 @@
     margin: 0 auto 1.5rem auto;
     display: block;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-    border: 3px solid var(--accent-color);
+    border: 3px solid var(--accent-color, #1b4965);
+    cursor: zoom-in;
+    transition: transform 0.3s ease;
 }
 
+.event-image:hover {
+    transform: scale(1.03);
+}
+
+/* =====================
+   Event Date / Content Wrapper
+   ===================== */
 .event-date {
     font-size: 1.1rem;
-    color: var(--primary-dark);
+    color: var(--primary-dark, #1b4965);
     margin-bottom: 1.5rem;
     font-weight: 600;
     line-height: 1.5;
     text-align: center;
 }
 
-.event-content {
-    text-align: center;
+/* =====================
+   Preview Content
+   ===================== */
+.preview-content {
+    margin-bottom: 0.5rem;
 }
 
-.event-content h3 {
-    font-size: 1.5rem;
-    color: var(--primary-color);
+.preview-content .greeting {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--primary-dark, #1b4965);
+    margin-bottom: 0.4rem;
+}
+
+.preview-content .title-line {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--primary-color, #1b4965);
+    margin: 0.4rem 0;
+}
+
+.preview-content .short-desc {
+    font-size: 1rem;
+    color: var(--dark-color, #555);
+    line-height: 1.6;
+    margin-top: 0.6rem;
+}
+
+/* =====================
+   Read More Toggle (Hidden Checkbox)
+   ===================== */
+.read-more-checkbox {
+    display: none;
+}
+
+/* =====================
+   Full Details (hidden by default)
+   ===================== */
+.full-details {
+    display: none;
+    text-align: left;
+    margin-top: 0.5rem;
+}
+
+.full-details p {
+    font-size: 1.05rem;
+    color: var(--dark-color, #333);
+    line-height: 1.7;
     margin-bottom: 1rem;
 }
 
-.event-content p {
-    font-size: 1.1rem;
-    color: var(--dark-color);
-    margin-bottom: 1.5rem;
-    line-height: 1.6;
+.full-details strong {
+    color: var(--primary-dark, #1b4965);
 }
 
-.event-content .btn {
+/* Show full details when checkbox is checked */
+.read-more-checkbox:checked ~ .full-details {
+    display: block;
+}
+
+/* =====================
+   Highlight List
+   ===================== */
+.highlight-list {
+    text-align: left;
+    margin: 0.5rem 0 1rem 1.5rem;
+    padding: 0;
+}
+
+.highlight-list li {
+    font-size: 1.05rem;
+    color: var(--dark-color, #333);
+    line-height: 1.7;
+    margin-bottom: 0.3rem;
+}
+
+/* =====================
+   Links
+   ===================== */
+.link-soft {
+    color: var(--primary-color, #1b4965);
+    text-decoration: underline;
+    word-break: break-all;
+    transition: color 0.2s ease;
+}
+
+.link-soft:hover {
+    color: var(--accent-color, #0d2b3e);
+}
+
+.email-line {
+    margin-top: 1rem;
+}
+
+/* =====================
+   Read More Label (Button)
+   ===================== */
+.read-more-label {
     display: inline-block;
-    margin: 0 auto;
+    margin-top: 1rem;
+    padding: 0.6rem 1.6rem;
+    background: var(--primary-color, #1b4965);
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+    user-select: none;
 }
 
-/* Responsive styles for events section */
-@media (min-width: 768px) {
-    .event-image {
-        max-width: 450px;
-        margin-bottom: 2rem;
-    }
-    
-    .event-date {
-        font-size: 1.2rem;
-    }
-    
-    .event-content h3 {
-        font-size: 1.8rem;
-    }
-    
-    .event-content p {
-        font-size: 1.2rem;
-    }
+.read-more-label:hover {
+    background: var(--accent-color, #0d2b3e);
+    transform: translateY(-2px);
 }
 
-@media (min-width: 1024px) {
-    .event-image {
-        max-width: 500px;
-    }
-    
-    .event-date {
-        font-size: 1.3rem;
-    }
-    
-    .event-content h3 {
-        font-size: 2rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .event-image {
-        max-width: 300px;
-        margin-bottom: 1rem;
-    }
-    
-    .event-date {
-        font-size: 1rem;
-    }
-    
-    .event-content h3 {
-        font-size: 1.3rem;
-    }
-    
-    .event-content p {
-        font-size: 1rem;
-    }
-}
-  /* Lightbox Styles for Event */
-  #lightbox-overlay {
+/* =====================
+   Lightbox
+   ===================== */
+#lightbox-overlay {
     display: none;
     position: fixed;
     z-index: 9999;
@@ -961,77 +1033,105 @@
     justify-content: center;
     align-items: center;
     cursor: zoom-out;
-  }
+}
 
-  #lightbox-overlay.active {
+#lightbox-overlay.active {
     display: flex;
-  }
+}
 
-  #lightbox-image {
+#lightbox-image {
     max-width: 90%;
     max-height: 90%;
     border-radius: 12px;
     box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
-  }
+}
 
-  /* Event Layout */
-  .three-column-layout {
-    display: flex;
-    justify-content: center;
-    align-items: stretch;
-    gap: 2rem;
-    margin-top: 2rem;
-    flex-wrap: wrap;
-  }
+/* =====================
+   Responsive Styles
+   ===================== */
 
-  .event-card {
-    flex: 1 1 30%;
-    background: #fff;
-    border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    padding: 1.5rem;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
-
-  .event-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
-  }
-
-  .event-image {
-    width: 100%;
-    border-radius: 10px;
-    margin-bottom: 1rem;
-    cursor: zoom-in;
-    transition: transform 0.3s ease;
-  }
-
-  .event-image:hover {
-    transform: scale(1.03);
-  }
-
-  .event-content h3 {
-    color: #1b4965;
-    margin-bottom: 0.5rem;
-  }
-
-  .event-content p {
-    color: #555;
-    line-height: 1.6;
-  }
-
-
-  /* Mobile Responsive */
-  @media (max-width: 900px) {
-    .three-column-layout {
-      flex-direction: column;
-      align-items: center;
+/* Tablet (768px+) */
+@media (min-width: 768px) {
+    .event-image {
+        max-width: 450px;
+        margin-bottom: 2rem;
     }
+
+    .event-date {
+        font-size: 1.2rem;
+    }
+
+    .preview-content .title-line {
+        font-size: 1.5rem;
+    }
+
+    .preview-content .short-desc {
+        font-size: 1.1rem;
+    }
+
+    .full-details p,
+    .highlight-list li {
+        font-size: 1.1rem;
+    }
+
+    .read-more-label {
+        font-size: 1.1rem;
+        padding: 0.7rem 2rem;
+    }
+}
+
+/* Desktop (1024px+) */
+@media (min-width: 1024px) {
+    .event-image {
+        max-width: 500px;
+    }
+
+    .event-date {
+        font-size: 1.3rem;
+    }
+
+    .preview-content .title-line {
+        font-size: 1.6rem;
+    }
+}
+
+/* Small Mobile (max 480px) */
+@media (max-width: 480px) {
     .event-card {
-      flex: 1 1 100%;
-      max-width: 95%;
+        padding: 1rem;
     }
-  }
+
+    .event-image {
+        max-width: 300px;
+        margin-bottom: 1rem;
+    }
+
+    .event-date {
+        font-size: 1rem;
+    }
+
+    .preview-content .greeting {
+        font-size: 1rem;
+    }
+
+    .preview-content .title-line {
+        font-size: 1.15rem;
+    }
+
+    .preview-content .short-desc {
+        font-size: 0.95rem;
+    }
+
+    .full-details p,
+    .highlight-list li {
+        font-size: 0.95rem;
+    }
+
+    .read-more-label {
+        font-size: 0.95rem;
+        padding: 0.5rem 1.4rem;
+    }
+}
 /* ==================== IMAGE SLIDER ==================== */
 
 .hero-slider {
@@ -1420,65 +1520,140 @@ the wider community.</p>
     <div class="events-container three-column-layout">
       <!-- Donation Appeal -->
 
-      <!-- Youth Magazine -->
-      <div class="event-card">
-        <a href="dci eid gathering.jpeg" class="lightbox">
-          <img
-            src="dci eid gathering.jpeg"
-            alt="DCI Youth Magazine 3rd Edition"
-            class="event-image"
-          />
-        </a>
-        <div class="event-date">
-          Assalamualaikum wa rehmatulahi wa barakatuhu, we will be hosting a eid gathering on the 21st of March
+     </head>
+<body>
+  <div class="event-card">
+    <!-- Lightbox image (poster) -->
+    <a href="dci eid gathering.jpeg" class="lightbox" target="_blank">
+      <img
+        src="dci cover .4.jpeg"
+        alt="DCI Youth Magazine 4th Edition"
+        class="event-image"
+        loading="lazy"
+      />
+    </a>
+
+    <!-- Event date / content wrapper -->
+    <div class="event-date">
+      <!-- Minimal preview: greeting, magazine title, short description -->
+      <div class="preview-content">
+        <p class="greeting">Assalamualaikum wa Rahmatullahi wa Barakatuhu</p>
+        <p style="font-size:0.9rem; color:#5f5f6e; margin-bottom:0.2rem;">Dear Youth and Parents,</p>
+        <p class="title-line">DCI Youth Magazine – 4th Edition</p>
+        <p style="font-size:0.9rem; color:#5f5f6e; margin-bottom:0.4rem;">Deccan Club of Ireland (DCI)</p>
+        <p class="short-desc">
+          Alhamdulillah! We are delighted to invite all Muslim youth across Ireland — from primary school to university level — to participate in the 4th Edition of the DCI Youth Magazine.
+        </p>
+      </div>
+
+      <!-- hidden checkbox for read-more toggle -->
+      <input type="checkbox" id="readMoreToggle" class="read-more-checkbox" />
+
+      <!-- full content, initially hidden, shown when checkbox checked -->
+      <div class="full-details">
+        <p>
+          <strong>Alhamdulillah!</strong> We are delighted to invite all Muslim youth across Ireland, from primary school to university level, to participate in the 4th Edition of the DCI Youth Magazine.
+        </p>
+        <p>
+          This is a wonderful opportunity for our young talents to express their creativity, share their ideas, showcase their skills and inspire others through their work.
+        </p>
+        <p><strong>EXPLORE YOUR CREATIVITY!</strong></p>
+        <p>We welcome submissions in various forms, including:</p>
+        <ul class="highlight-list">
+          <li>Essays, articles, short stories</li>
+          <li>Interviews, poems</li>
+          <li>Drawings, paintings, murals</li>
+        </ul>
+        <p><strong>CATEGORIES AND PRIZES</strong></p>
+        <p>There are five entry categories:</p>
+        <ul class="highlight-list">
+          <li>2 categories for primary school students</li>
+          <li>2 categories for secondary school students</li>
+          <li>1 category for university students</li>
+        </ul>
+        <p>
+          🥇 The top three performers in each category will receive cash prizes and trophies.<br />
+          Every participant will receive a token of appreciation and a surprise gift pack at our Gala Award Evening, In Sha Allah.
+        </p>
+        <p><strong>IMPORTANT SUBMISSION DETAILS</strong></p>
+        <p>
+          Deadline: <strong>Sunday, 1 November 2026, at 11:59 p.m.</strong><br />
+          Students must select <strong>ONLY ONE TOPIC</strong> from their respective category.
+        </p>
+        <p>
+          Topics, detailed instructions and submission guidelines are available through the form below.
+          Please read them carefully before submitting your entry.
+        </p>
+        <p>
+          <strong>Submission Form:</strong><br />
+          <a href="https://forms.gle/Pvzii9XtQeKrKW6M8" class="link-soft" target="_blank" rel="noopener">
+            https://forms.gle/Pvzii9XtQeKrKW6M8
+          </a>
+        </p>
+        <p>Alternatively, scan the QR code on the poster.</p>
+        <p><strong>DCI Youth Recognition Awards</strong></p>
+        <p>
+          We are also inviting nominations for the Youth Recognition Awards, which celebrate young Muslim achievers from Ireland who have made notable achievements at national or international level in areas such as:
+        </p>
+        <ul class="highlight-list">
+          <li>Academics, education</li>
+          <li>Sports, arts</li>
+          <li>Community service, innovation</li>
+          <li>and other fields</li>
+        </ul>
+        <p>
+          If you know a deserving young achiever, please nominate them by <strong>1 November 2026</strong>.
+        </p>
+        <p class="email-line">
+          Nominations and Queries: <a href="mailto:deccanclubofireland@gmail.com" class="link-soft">deccanclubofireland@gmail.com</a>
+        </p>
+        <p>
+          We kindly request all parents to motivate their children to participate and ensure that their submissions are completed before the deadline.
+        </p>
+        <p>
+          Let’s make the 4th Edition of the DCI Youth Magazine another memorable celebration of young Muslim talent across Ireland.
+        </p>
+        <p style="margin-top: 1rem; font-weight: 400; color: #3b3b4a;">
+          Warm regards,<br />
+          <strong>Team DCI</strong>
+        </p>
+      </div>
+
+      <!-- Read more / Read less label -->
+      <label for="readMoreToggle" class="read-more-label">Read more</label>
+    </div>
+  </div>
+
+  <!-- tiny javascript to update label text (optional, but keeps "Read more" ↔ "Read less" dynamic) -->
+  <script>
+    (function() {
+      const toggle = document.getElementById('readMoreToggle');
+      const label = document.querySelector('.read-more-label');
+      if (!toggle || !label) return;
+
+      // Initial text
+      const setLabelText = () => {
+        if (toggle.checked) {
+          label.textContent = 'Read less';
+        } else {
+          label.textContent = 'Read more';
+        }
+      };
+
+      // sync on page load (in case of back/forward cache)
+      setLabelText();
+
+      // listen for change
+      toggle.addEventListener('change', setLabelText);
+    })();
+  </script>
         </div>
         <div class="event-content">
           <a href="https://formsubmit.co/el/papagi" class="btn">Contact Us</a>
         </div>
       </div>
 
-       <div class="event-card">
-        <a href="shuhada appeal.jpg" class="lightbox">
-          <img
-            src="shuhada appeal.jpg"
-            alt="Shaheed Bilal Masjid Donation Appeal - Shuhada Foundation"
-            class="event-image"
-          />
-        </a>
-        <div class="event-date">Community Support</div>
-        <div class="event-content">
-          <h3>Shuhada Foundation of Ireland</h3>
-          <p>
-            This winter, Deccan Club of Ireland proudly supports the
-            <strong>Shaheed Bilal Masjid Donation Appeal</strong>. Together, we
-            can help build a masjid and community centre for future generations.
-          </p>
-          <a
-            href="https://dev-shuhadafoundation.weebly.com/"
-            target="_blank"
-            class="btn"
-            >Learn More & Donate</a
-          >
-        </div>
-      </div>
-
-      <!-- Sponsors -->
-      <div class="event-card">
-        <a href="sponers winter event.jpg" class="lightbox">
-          <img
-            src="sponers winter event.jpg"
-            alt="Deccan Club Ireland Winter Event Sponsors"
-            class="event-image"
-          />
-        </a>
-        <div class="event-date">Winter Event 2025</div>
-        <div class="event-content">
-          <h3>Thank You to All Our Sponsors</h3>
-          <p>
-            We extend our heartfelt gratitude to all our sponsors for supporting
-            the Deccan Club of Ireland Winter Event 2025. Your generosity helps
-            strengthen our community spirit.
-          </p>
+       
         </div>
       </div>
     </div>
